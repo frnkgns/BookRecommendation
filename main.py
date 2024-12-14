@@ -374,7 +374,7 @@ def CombinedFunction():
     # Step 5: Calculate cosine similarity between user's preferences and each book
     similarity_scores = cosine_similarity(user_vector, book_vectors).flatten()
 
-    # Add a threshold to avoid including books with zero or near-zero similarity
+    # Add a thresholding to avoid including books with zero or near-zero similarity
     similarity_threshold = 0.05
     similarity_threshold_predicted = 0.2
     relevant_books = [book_texts[i][0] for i in range(len(similarity_scores)) if similarity_scores[i] > similarity_threshold]
@@ -450,7 +450,6 @@ def CombinedFunction():
     else:
         print("No relevant or predicted books to calculate precision, recall, and F1 score.")
 #endregion
-
 #region Bert Based Recommendation
 def BertBasedRecommendation():
     global query, titles
